@@ -65,24 +65,36 @@ NSString *kCellID = @"cellID";
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     AppDelegate *app = [[UIApplication sharedApplication] delegate];
-
+    UICollectionViewFlowLayout *flowLayout = nil;
     if (isGrid) {
         //rect =  CGRectMake(collectionView.frame.origin.x,0,700,collectionView.frame.size.height);
         position = 700;
+        flowLayout=[[UICollectionViewFlowLayout alloc] init];
+        flowLayout.itemSize=CGSizeMake(100,100);
+        [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+
 
     }else{
         //rect =  CGRectMake(collectionView.frame.origin.x,200,collectionView.frame.size.height);
         position = 200;
+        flowLayout=[[UICollectionViewFlowLayout alloc] init];
+        flowLayout.itemSize=CGSizeMake(100,100);
+         [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
 
     }
 
     [UIView animateWithDuration:0.5 animations:^{
         app.splitViewController.splitPosition = position;
         //collectionView.frame = rect;
+        [collectionView setCollectionViewLayout:flowLayout];
+
         
     } completion:^(BOOL finished) {
 
+       // [collectionView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section]];
+//        [self setScrollDirection:UICollectionViewScrollDirectionHorizontal];
         
+     
     }];
     isGrid = !isGrid;
     

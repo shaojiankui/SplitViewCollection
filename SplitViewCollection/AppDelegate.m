@@ -27,7 +27,7 @@
     
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     flowLayout.itemSize=CGSizeMake(100,100);
-    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     
     
     self.splitViewController.masterViewController = [[MasterViewController alloc] initWithCollectionViewLayout:flowLayout];

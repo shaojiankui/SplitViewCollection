@@ -20,7 +20,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.splitViewController = [[MGSplitViewController alloc] initWithNibName:@"MGSplitViewController" bundle:nil];
-    self.splitViewController.splitPosition = 700;
+    self.splitViewController.delegate = self;
+
     self.window.rootViewController = self.splitViewController;
     [self.window makeKeyAndVisible];
  
@@ -36,7 +37,9 @@
 
     return YES;
 }
-
+- (float)splitViewController:(MGSplitViewController *)svc constrainSplitPosition:(float)proposedPosition splitViewSize:(CGSize)viewSize {
+    return proposedPosition;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

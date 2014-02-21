@@ -28,8 +28,9 @@ NSString *kCellID = @"cellID";
     [super viewDidLoad];
     isGrid = NO;
     [self.collectionView registerClass:[CollectionCell class] forCellWithReuseIdentifier:kCellID];
-    self.splitViewController.delegate = self;
-    
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+
+    app.splitViewController.splitPosition = 1000;
 
 }
 
@@ -68,7 +69,7 @@ NSString *kCellID = @"cellID";
     UICollectionViewFlowLayout *flowLayout = nil;
     if (isGrid) {
         //rect =  CGRectMake(collectionView.frame.origin.x,0,700,collectionView.frame.size.height);
-        position = 700;
+        position = 1000;
         flowLayout=[[UICollectionViewFlowLayout alloc] init];
         flowLayout.itemSize=CGSizeMake(100,100);
         [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];

@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "MGSplitViewController.h"
+#import "MGSplitViewController.h"
 
 @class MasterViewController;
 @class DetailViewController;
 @class MGSplitViewController;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,MGSplitViewControllerDelegate>
 {
     MGSplitViewController *splitViewController;
     MasterViewController *masterViewController;
